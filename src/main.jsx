@@ -10,9 +10,3 @@ ReactDOM.createRoot(document.getElementById("root")).render(
     <RouterProvider router={router} />
   </GlobalContextProvider>
 );
-
-// createRoot(document.getElementById("root")).render(
-//   <GlobalContextProvider>
-//     <App />
-//   </GlobalContextProvider>
-// );
