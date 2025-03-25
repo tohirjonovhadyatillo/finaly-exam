@@ -35,17 +35,25 @@ function MyProfile() {
 
       <div className="flex flex-col items-center">
         <img
-          src={user?.photoURL || "https://via.placeholder.com/100"}
+          src={
+            user?.photoURL ||
+            "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQxKV-fKQHr0Z5dIlHUQ-NfViV-5sx0DzkBVA&s"
+          }
           alt="Profile"
           className="w-24 h-24 rounded-full border"
         />
         <p className="text-center text-gray-700 mt-2 text-lg font-semibold">
-          {user?.displayName || "No Name"}
+          {user?.displayName || "Anonim bro akkauntizdan kiring"}
         </p>
       </div>
+
       <div className="mt-5 text-center">
-        <p className="text-gray-700 text-md">Download Images: <span className="font-bold">{uploadedCount}</span></p>
-        <p className="text-gray-700 text-md">Liked Images: <span className="font-bold">{likedCount}</span></p>
+        <p className="text-gray-700 text-md">
+          Download Images: <span className="font-bold">{uploadedCount}</span>
+        </p>
+        <p className="text-gray-700 text-md">
+          Liked Images: <span className="font-bold">{likedCount}</span>
+        </p>
       </div>
     </div>
   );

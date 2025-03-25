@@ -7,3 +7,5 @@ function useGlobalContext() {
 }
 
 export default useGlobalContext
+
+ // tohirjonov mualif kimdur chopgan bolsa aniqlashga 

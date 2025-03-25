@@ -109,7 +109,7 @@ function Navbar() {
           {user ? (
             <div className="relative">
               <img
-                src={user.photoURL || "https://via.placeholder.com/40"}
+                src={user.photoURL || "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQxKV-fKQHr0Z5dIlHUQ-NfViV-5sx0DzkBVA&s"}
                 alt="User Avatar"
                 className="w-10 h-10 rounded-full cursor-pointer border border-gray-300"
                 onClick={() => setShowDropdown(!showDropdown)}
