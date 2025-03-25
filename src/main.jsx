@@ -1,5 +1,18 @@
-import { createRoot } from "react-dom/client";
+import React from "react";
+import ReactDOM from "react-dom/client";
+import { RouterProvider } from "react-router-dom";
+import router from "./App";
 import "./index.css";
-import App from "./App.jsx";
+import { GlobalContextProvider } from "./contex/GlobolContext";
 
-createRoot(document.getElementById("root")).render(<App />);
+ReactDOM.createRoot(document.getElementById("root")).render(
+  <GlobalContextProvider>
+    <RouterProvider router={router} />
+  </GlobalContextProvider>
+);
+
+// createRoot(document.getElementById("root")).render(
+//   <GlobalContextProvider>
+//     <App />
+//   </GlobalContextProvider>
+// );
