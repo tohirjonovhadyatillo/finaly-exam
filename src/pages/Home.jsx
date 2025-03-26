@@ -38,7 +38,7 @@ function Home() {
 
       if (response.status === 200) {
         setImages((prev) =>
-          pageNumber == 1 ? response.data.results : [...prev, ...response.data.results]
+          pageNumber === 1 ? response.data.results : [...prev, ...response.data.results]
         );
       } else {
         throw new Error(`Failed to fetch images: ${response.status}`);
@@ -65,11 +65,11 @@ function Home() {
       <div className="my-10 w-full max-w-3xl px-4">
         <Search />
       </div>
-      <div className="w-full max-w-5xl px-4">
+      <div className="w-full max-w-6xl px-4">
         {loading ? (
-          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4">
+          <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4">
             {[...Array(12)].map((_, index) => (
-              <div key={index} className="skeleton w-full h-48 rounded-lg"></div>
+              <div key={index} className="skeleton w-full h-56 md:h-64 lg:h-72 rounded-lg"></div>
             ))}
           </div>
         ) : images.length > 0 ? (
@@ -80,12 +80,12 @@ function Home() {
       </div>
 
       {error && <p className="text-red-500 text-center my-5">{error}</p>}
-      {!loading && (
+      {!loading && images.length > 0 && (
         <button
           onClick={loadMoreImages}
           className="btn btn-primary mt-4 mb-8"
         >
-          Load More
+          Yana koproq 
         </button>
       )}
     </div>
