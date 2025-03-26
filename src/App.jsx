@@ -6,7 +6,7 @@ import Contact from "./pages/Contact";
 import LikedImages from "./pages/LikedImages";
 import Register from "./pages/Register";
 import Login from "./pages/Login";
-import ProtectedRoute from "./components/ProtectedRoute";
+import ProtectedRoute from "./components/Protected";
 import Download from "./pages/Download"; 
 import MyProfile from "./pages/MyProfile";
 

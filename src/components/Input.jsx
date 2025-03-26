@@ -1,6 +1,6 @@
 import { FaSearch } from "react-icons/fa";
 
-function FormInput({ type = "text", placeholder, name, width = "400px" }) {
+function Input({ type = "text", placeholder, name, width = "400px" }) {
   return (
     <div>
       <label className="input input-bordered flex items-center gap-2 mx-auto">
@@ -18,4 +18,4 @@ function FormInput({ type = "text", placeholder, name, width = "400px" }) {
   );
 }
 
-export default FormInput;
+export default Input;

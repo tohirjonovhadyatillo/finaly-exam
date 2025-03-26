@@ -2,7 +2,7 @@ import { Navigate, Outlet } from "react-router-dom";
 import { auth } from "../firebace/firebaceConfig";
 import { useEffect, useState } from "react";
 
-const ProtectedRoute = () => {
+const Protected = () => {
   const [user, setUser] = useState(null);
   const [loading, setLoading] = useState(true);
 
@@ -36,4 +36,4 @@ const ProtectedRoute = () => {
   return user ? <Outlet /> : <Navigate to="/login" replace />;
 };
 
-export default ProtectedRoute;
+export default Protected;

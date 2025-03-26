@@ -1,7 +1,7 @@
 import Masonry, { ResponsiveMasonry } from "react-responsive-masonry";
 import Img from "./Img.jsx";
 
-function ImgContainer({ images }) {
+function ImgFullContainer({ images }) {
   return (
     <div className="w-full py-10">
       <div className="max-w-screen-2xl w-full mx-auto px-5">
@@ -30,4 +30,4 @@ function ImgContainer({ images }) {
   );
 }
 
-export default ImgContainer;
+export default ImgFullContainer;

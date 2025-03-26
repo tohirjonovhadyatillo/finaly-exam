@@ -1,5 +1,5 @@
 import { Form } from "react-router-dom";
-import FormInput from "./FormInput";
+import FormInput from "./Input";
 
 function Search() {
   return (

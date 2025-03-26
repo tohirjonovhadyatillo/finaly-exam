@@ -2,7 +2,7 @@ import { useEffect, useState } from "react";
 import Search from "../components/Search";
 import { useActionData } from "react-router-dom";
 import axios from "axios";
-import ImgContainer from "../components/ImgContainer";
+import ImgContainer from "../components/ImgFullContainer";
 
 export const action = async ({ request }) => {
   let formData = await request.formData();
