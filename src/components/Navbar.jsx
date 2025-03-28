@@ -85,6 +85,7 @@ function Navbar() {
           <Link to="/" className="hover:text-primary">Home</Link>
           <Link to="/about" className="hover:text-primary">About</Link>
           <Link to="/contact" className="hover:text-primary">Contact</Link>
+          <Link to="/testimonials" className="hover:text-primary">Testimonials</Link>
         </div>
 
         <div className="flex items-center gap-5">
@@ -136,6 +137,7 @@ function Navbar() {
           <Link to="/" className="hover:text-primary">Home</Link>
           <Link to="/about" className="hover:text-primary">About</Link>
           <Link to="/contact" className="hover:text-primary">Contact</Link>
+          <Link to="/testimonials" className="hover:text-primary">Testimonials</Link>
         </div>
       )}
     </header>
