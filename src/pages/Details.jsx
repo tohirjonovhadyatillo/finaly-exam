@@ -1,30 +1,30 @@
 import { useEffect, useState } from "react";
-import { useParams, useNavigate } from "react-router-dom"; 
-import { db } from "../firebace/firebaceConfig";
-import { doc, getDoc } from "firebase/firestore";
-import { FaArrowLeft } from "react-icons/fa"; // For the back button icon
+import { useParams, useNavigate } from "react-router-dom";
+import { FaArrowLeft } from "react-icons/fa";
 
 function Details() {
   const { id } = useParams();
-  const navigate = useNavigate(); // To handle navigation
+  const navigate = useNavigate();
   const [image, setImage] = useState(null);
   const [loading, setLoading] = useState(true);
-  const [error, setError] = useState(null); // To handle errors
+  const [error, setError] = useState(null);
 
   useEffect(() => {
     const fetchImageDetails = async () => {
       try {
-        const imageRef = doc(db, "images", id);
-        const docSnap = await getDoc(imageRef);
+        const response = await fetch(
+          `https://api.unsplash.com/photos/${id}?client_id=AIzaSyA94G9XZSc2F-1LkdKnn48xD7RlIEeVx04` // Vergulni olib tashlash
+        );
+        const data = await response.json();
 
-        if (docSnap.exists()) {
-          setImage(docSnap.data());
+        if (response.ok) {
+          setImage(data); // ✅ To‘g‘ridan-to‘g‘ri obyektni saqlash
         } else {
-          setError("Image not found");
+          setError("Image not found"); // Xatolik haqida to'g'ri ma'lumot
         }
       } catch (err) {
-        setError("An error occurred while fetching the image details.");
-        console.error(err);
+        setError(`An error occurred: ${err.message}`);
+        console.error("Error fetching document: ", err);
       }
       setLoading(false);
     };
@@ -62,18 +62,24 @@ function Details() {
       >
         <FaArrowLeft /> Back to Gallery
       </button>
-      
+
       <div className="flex flex-col items-center">
         <img
-          src={image?.urls?.regular}
+          src={image?.urls?.regular || "default-image.jpg"} // Rasm URL mavjudligini tekshirish
           alt={image?.alt_description || "Image"}
           className="w-full max-w-3xl mb-6 rounded-lg shadow-md"
         />
-        <h1 className="text-3xl font-semibold mb-3 text-center">{image?.alt_description || "Untitled Image"}</h1>
+        <h1 className="text-3xl font-semibold mb-3 text-center">
+          {image?.alt_description || "Untitled Image"}
+        </h1>
         <div className="flex flex-col items-center space-y-2">
-          <p className="text-lg font-medium text-gray-700">By {image?.user?.name || "Unknown"}</p>
+          <p className="text-lg font-medium text-gray-700">
+            By {image?.user?.name || "Unknown"}
+          </p>
           <p className="text-lg text-gray-500">Likes: {image?.likes || 0}</p>
-          <p className="text-lg text-gray-600">{image?.description || "No description available"}</p>
+          <p className="text-lg text-gray-600">
+            {image?.description || "No description available"}
+          </p>
         </div>
       </div>
     </div>
