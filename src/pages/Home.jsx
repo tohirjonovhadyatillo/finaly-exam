@@ -69,11 +69,14 @@ function Home() {
         {loading ? (
           <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4">
             {[...Array(12)].map((_, index) => (
-              <div key={index} className="skeleton w-full h-56 md:h-64 lg:h-72 rounded-lg"></div>
+              <div key={index} className="skeleton w-full h-56 md:h-64 lg:h-72 rounded-lg animate-pulse"></div>
             ))}
           </div>
         ) : images.length > 0 ? (
-          <ImgContainer images={images} />
+          <ImgContainer 
+            images={images} 
+            className="transition-all duration-500 opacity-100 ease-in-out" 
+          />
         ) : (
           !loading && !error && <p className="text-center text-gray-500">No images found.</p>
         )}
@@ -83,9 +86,9 @@ function Home() {
       {!loading && images.length > 0 && (
         <button
           onClick={loadMoreImages}
-          className="btn btn-primary mt-4 mb-8"
+          className="btn btn-primary mt-4 mb-8 transition-transform duration-300 transform hover:scale-105"
         >
-          Yana koproq 
+          Yana koproq
         </button>
       )}
     </div>
