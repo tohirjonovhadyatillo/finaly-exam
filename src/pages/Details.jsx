@@ -55,7 +55,7 @@ function Details() {
   }
 
   return (
-    <div className="container mx-auto p-6 max-w-4xl bg-white shadow-lg rounded-lg">
+    <div className="container mx-auto p-6 max-w-4xl bg-white shadow-lg rounded-lg m-5">
       <button
         onClick={() => navigate("/")}
         className="mb-6 p-3 bg-gray-800 text-white rounded-full flex items-center gap-2 hover:bg-gray-700 transition-all"
@@ -63,7 +63,7 @@ function Details() {
         <FaArrowLeft /> Back to Gallery
       </button>
 
-      <div className="flex flex-col items-center">
+      <div className="flex flex-col items-center ">
         <img
           src={image?.urls?.regular || "default-image.jpg"} 
           alt={image?.alt_description || "Image"}
