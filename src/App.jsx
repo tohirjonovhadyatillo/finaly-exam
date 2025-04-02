@@ -10,6 +10,7 @@ import ProtectedRoute from "./components/Protected";
 import Download from "./pages/Download"; 
 import MyProfile from "./pages/MyProfile";
 import Testimonials from "./pages/Testimonials";
+import Details from "./pages/Details";
 
 const router = createBrowserRouter([
   {
@@ -49,6 +50,16 @@ const router = createBrowserRouter([
           <div className="container mx-auto mt-5">
             <MainLayouts>
               <About />
+            </MainLayouts>
+          </div>
+        ),
+      },
+      {
+        path: "/details/:id",
+        element: (
+          <div className="container mx-auto mt-5">
+            <MainLayouts>
+              <Details/>
             </MainLayouts>
           </div>
         ),

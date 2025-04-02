@@ -4,6 +4,8 @@ import {
   GoogleAuthProvider, 
   signInWithPopup, 
   signInAnonymously, 
+  createUserWithEmailAndPassword, 
+  signInWithEmailAndPassword, 
   signOut 
 } from "firebase/auth";
 import { getFirestore } from "firebase/firestore";
@@ -25,14 +27,13 @@ const db = getFirestore(app);
 const storage = getStorage(app);
 const googleProvider = new GoogleAuthProvider();
 
+
 const signInWithGoogle = () => signInWithPopup(auth, googleProvider);
-
 const signInAsGuest = () => signInAnonymously(auth);
+const signUpWithEmail = (email, password) => createUserWithEmailAndPassword(auth, email, password);
 
+const signInWithEmail = (email, password) => signInWithEmailAndPassword(auth, email, password);
 const logout = () => signOut(auth);
 
-export { auth, db, storage, signInWithGoogle, signInAsGuest, logout };
+export { auth, db, storage, signInWithGoogle, signInAsGuest, signUpWithEmail, signInWithEmail, logout };
 export default app;
-
-
-// tohirjonovhadyatillo

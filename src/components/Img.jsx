@@ -3,12 +3,14 @@ import { FaRegHeart, FaHeart, FaDownload } from "react-icons/fa";
 import { saveAs } from "file-saver";
 import { db, auth } from "../firebace/firebaceConfig";
 import { doc, setDoc, deleteDoc, onSnapshot } from "firebase/firestore";
+import { useNavigate } from "react-router-dom";  // Use useNavigate instead of useHistory
 
 function Img({ image }) {
   const { urls, alt_description, user, id } = image;
   const [liked, setLiked] = useState(false);
   const [loading, setLoading] = useState(true);
   const currentUser = auth.currentUser;
+  const navigate = useNavigate();  // Initialize useNavigate hook for navigation
 
   useEffect(() => {
     if (currentUser) {
@@ -61,6 +63,11 @@ function Img({ image }) {
     }
   };
 
+  // Handle the click to navigate to the details page
+  const handleImageClick = () => {
+    navigate(`/details/${id}`);  // Navigate to details page with the image ID
+  };
+
   return (
     <div className="relative group overflow-hidden rounded-xl shadow-lg w-full">
       <span
@@ -84,6 +91,7 @@ function Img({ image }) {
         alt={alt_description || "Unsplash image"}
         className="w-full h-auto object-cover rounded-lg transition-transform duration-300 ease-in-out group-hover:scale-105"
         loading="lazy"
+        onClick={handleImageClick}  // Handle click to navigate
       />
 
       <div className="absolute bottom-3 left-3 right-3 flex items-center justify-between bg-black/60 text-white text-xs md:text-sm px-3 py-2 rounded-lg opacity-90 backdrop-blur-md">
